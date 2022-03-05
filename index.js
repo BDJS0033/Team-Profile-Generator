@@ -77,19 +77,17 @@ inquirer.prompt([
     },
 ])
 //Starting questions for specific values
-    .then(({ employee, id, email, role }) => {
-    if (role === "Manager") {
-        return inquirer
-        .prompt([{
-            type: 'text',
-            name: 'officeNum',
-            message: 'Please provide your office number',
-            validate: officeNum => {
+// .then(answers => {
 
-            }
-        }])
-    }
-}
+//     if (role === "Manager") {
+//         inquirer.prompt([{
+//             type: 'input',
+//             name: 'officeNum',
+//             message: 'Please provide your office number:',
+//             validate
+//         }])
+//     }
+// }
 
 // // Function to write file
 // function writeToFile(fileName, data) {
