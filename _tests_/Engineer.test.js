@@ -4,7 +4,7 @@ const Engineer = require('../lib/Engineer');
 // Name, ID, Email, getName(), getId(), getEmail(), getRole()
 //gitHub, getGitHub(), getRole() to Return Engineer
 
-const engineerTest = new Engineer('Jim Halpert', 2, 'jhalpert@paper.com', 'BDJS0033');
+const engineerTest = new Engineer('Jim Halpert', 2, 'jhalpert@paper.com', 'Engineer', 'BDJS0033');
 
 describe('Engineer', () => {
     it('provides a name', () => {

@@ -1,7 +1,7 @@
 const Employee = require('../lib/Employee.js');
 
-// //Test for Employee
-// // Name, ID, Email, getName(), getId(), getEmail(), getRole()
+//Test for Employee
+// Name, ID, Email, getName(), getId(), getEmail(), getRole()
 //describe(name,fn) method - group together related tests
 //https://github.com/facebook/jest/blob/main/examples/async/__tests__/user.test.js
 //https://jestjs.io/docs/api#describename-fn
