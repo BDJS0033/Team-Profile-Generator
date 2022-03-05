@@ -3,123 +3,93 @@ const fs = require('fs');
 
 //Inquirer package being called
 const inquirer = require('inquirer');
+const jest = require('jest');
 
 //Team Package being called
-//const Employee = require('./lib/Employee'); => REVIEW AS FILE NOT READING
+// const Employee = require('./lib/Employee'); => REVIEW AS FILE NOT READING - Inheritance?
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
+// const generatePage = require(./src/);
+//const writeFile = require(./src/);
 
 //~~~~~~ SET UP QUESTIONS~~~~//
 //~~~~~~AMEND FUNCTIONS~~~~//
 //~~~~~~ SET UP PAGE GENERATORS ~~~~~~~~~~//
 
+//create empty Array
+let myTeam = [];
 
 // Questions for user input
-// const questions = [
-//     {
-//         type: 'input',
-//         name: 'username',
-//         message: 'Enter your GitHub Username.',
-//         validate: githubInput => {
-//             if (githubInput) {
-//                 return true;
-//             } else {
-//                 console.log('Please enter your GitHub username!');
-//                 return false;
-//             }
-//         }
-//     },
-//     {
-//         type: 'input',
-//         name: 'email',
-//         message: 'Please provide your email.',
-//         validate: emailInput => {
-//             if (emailInput) {
-//                 return true;
-//             } else {
-//                 console.log('Please enter a valid email!');
-//                 return false;
-//             }
-//         }
-//     },
-//     {
-//         type: 'input',
-//         name: 'name',
-//         message: 'What is the name of your project? (Required)',
-//         validate: nameInput => {
-//             if (nameInput) {
-//                 return true;
-//             } else {
-//                 console.log('You need to enter a project name!');
-//                 return false;
-//             }
-//         }
-//     },
-//     {
-//         type: 'input',
-//         name: 'description',
-//         message: 'Provide a description of the project (Required)',
-//         validate: descriptionInput => {
-//             if (descriptionInput) {
-//                 return true;
-//             } else {
-//                 console.log('You need to enter a project description!');
-//                 return false;
-//             }
-//         }
-//     },
-//     {
-//         type: 'input',
-//         name: 'Installation',
-//         message: 'Provide instruction on how to install the project:',
-//         validate: installationInput => {
-//             if (installationInput) {
-//                 return true;
-//             } else {
-//                 console.log('Please provide instalation instructions!');
-//                 return false;
-//             }
-//         }
-//     },
-//     {
-//         type: 'checkbox',
-//         name: 'languages',
-//         message: 'What language was used to create this project: (Check all that apply)',
-//         choices: ['JavaScript', 'HTML', 'CSS', 'ES6', 'jQuery', 'Bootstrap', 'Node']
-//     },
-//     {
-//         type: 'input',
-//         name: 'Usage',
-//         message: 'Provide exmaples showcasing how this program can be used:',
-//     },
-//     {
-//         type: 'checkbox',
-//         name: 'License',
-//         message: 'Specify the license(s) on your project (More than one can apply)',
-//         choices: ['Apache', 'GNU GPLv3', 'MIT', 'ISC', 'GNU GPLv2 (or later)', 'No License Required',]
-//     },
-//     {
-//         type: 'input',
-//         name: 'Credit',
-//         message: 'If applicable, mention the people who helped you with this project.',
-//     },
-//     {
-//         type: 'input',
-//         name: 'Contribute',
-//         message: 'Let people know how they can contribute to your project!',
-//     },
-//     {
-//         type: 'input',
-//         name: 'Test',
-//         message: 'Provide any tests written for your project and showcase how they are used.',
-//     },
-//     {
-//         type: 'input',
-//         name: 'Badges',
-//         message: 'Add all applicable badges to your README',
-//     },
-// ];
+inquirer.prompt([
+    {
+        type: 'text',
+        name: 'Employee',
+        message: 'Please state your name:',
+        validate: nameInput => {
+            if (nameInput) {
+                return true
+            } else {
+                console.log('Please state your name!');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'list',
+        name: 'Role',
+        message: 'Please indicate your role:',
+        choices: ['Manager', 'Engineer', 'Employee', 'Intern'],
+        validate: roleInput => {
+            if (roleInput) {
+                return true
+            } else {
+                console.log('Please indicate your role!');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'text',
+        name: 'id',
+        message: 'Please enter your Employee ID Number:',
+        validate: idInput => {
+            if (idInput) {
+                return true
+            } else {
+                console.log('Your Employee ID Number is required!');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'Please provide your email.',
+        validate: emailInput => {
+            if (emailInput) {
+                return true;
+            } else {
+                console.log('Please enter a valid email!');
+                return false;
+            }
+        }
+    },
+])
+//Starting questions for specific values
+    .then(({ employee, id, email, role }) => {
+    if (role === "Manager") {
+        return inquirer
+        .prompt([{
+            type: 'text',
+            name: 'officeNum',
+            message: 'Please provide your office number',
+            validate: officeNum => {
+
+            }
+        }])
+    }
+}
 
 // // Function to write file
 // function writeToFile(fileName, data) {
