@@ -4,9 +4,9 @@ const Intern = require('../lib/Intern');
 // Name, ID, Email, getName(), getId(), getEmail(), getRole()
 //school, getSchool(), getRole() Return Intern)
 
-const internTest = new Intern('Ryan Howard', 4, 'rhoward@paper.com', 'Scott`s Tots University');
+const internTest = new Intern('Ryan Howard', 4, 'rhoward@paper.com', 'Intern', 'Scott`s Tots University');
 
-describe('Engineer', () => {
+describe('Intern', () => {
     it('provides a name', () => {
         expect(internTest.name).toEqual((expect.any(String)));
         expect(internTest.name.length).toBeGreaterThan(0);
@@ -20,7 +20,7 @@ describe('Engineer', () => {
     })
 
     it('has a role', () => {
-        expect(internTest.role).toBe('Engineer')
+        expect(internTest.role).toBe('Intern')
     })
 
     it('still in school', () => {
