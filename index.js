@@ -44,8 +44,8 @@ Manager Details
                 type: 'input',
                 name: 'id',
                 message: 'Please verify your employee Id(Required)',
-                validate: idInput => {
-                    if (idInput) {
+                validate: id => {
+                    if (id) {
                         return true;
                     } else {
                         console.log('Please provide your employee ID!');
@@ -57,8 +57,8 @@ Manager Details
                 type: 'input',
                 name: 'email',
                 message: 'Please provide your email:',
-                validate: emailInput => {
-                    if (emailInput) {
+                validate: email => {
+                    if (email) {
                         return true;
                     } else {
                         console.log('Please provide a valid email!');
@@ -67,11 +67,11 @@ Manager Details
                 }
             },
             {
-                type: 'input',
-                name: 'Office number',
+                type: 'text',
+                name: 'office number',
                 message: 'Please provide your managers office number:',
-                validate: officeInput => {
-                    if (officeInput) {
+                validate: officeNumber => {
+                    if (officeNumber) {
                         return true;
                     } else {
                         console.log('Please enter your managers office number!');
@@ -81,8 +81,8 @@ Manager Details
             },
         ])
         .then(managerInput => {
-            const { name, id, email, officenumber } = managerInput;
-            const manager = new Manager(name, id, email, officenumber);
+            const { name, id, email, officeNumber } = managerInput;
+            const manager = new Manager(name, id, email, officeNumber);
             teamMembers.push(manager);
             console.log(manager);
         });
@@ -159,7 +159,7 @@ const addEmployee = () => {
                 }
             },
             {
-                type: 'input',
+                type: 'text',
                 name: 'school',
                 message: 'What school do you attend?',
                 when: (input) => input.role === "Intern",

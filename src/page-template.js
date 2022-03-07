@@ -17,7 +17,7 @@ let htmlCard = ""
         let lastKey = keys[4];
         let finalOption = lastKey + ":" + finalPrompt
         //leave final option open to user input
-        if (lastKey === undefined){
+        if (lastKey === ''){
             finalOption = "";
 
         } else if (lastKey === 'gitHub'){
@@ -27,7 +27,6 @@ let htmlCard = ""
         else{
             console.log(finalOption)
         }
-
 
        //htmll card should contain following items depending on user input
         let {name, role, email, id} = teamMembers[i]
